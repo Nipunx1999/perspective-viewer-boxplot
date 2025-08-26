@@ -72,7 +72,8 @@ import '@finos/perspective-viewer-datagrid';
 import '@finos/perspective-viewer-d3fc';
 
 // Then import your local boxplot plugin
-import './path/to/your/boxplot-perspective.js';
+// Use the .cjs.js file for React projects to avoid ESLint errors
+import './path/to/your/perspective-viewer-boxplot.cjs.js';
 
 function MyComponent() {
   const viewerRef = useRef();

@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
                     export: "default"
                 },
                 globalObject: "this",
-                clean: true
+                clean: false
             },
             externals: {
                 // Don't bundle these - let the consuming app provide them
@@ -83,10 +83,10 @@ module.exports = (env, argv) => {
                 open: '/index.html'
             }
         },
-        // ES Module build
+        // ES Module build for React
         {
             mode: argv.mode || "development",
-            entry: "./src/js/index.js",
+            entry: "./src/js/react-export.js",
             output: {
                 filename: "perspective-viewer-boxplot.esm.js",
                 path: path.resolve(__dirname, "dist"),
@@ -115,6 +115,61 @@ module.exports = (env, argv) => {
                                     ["@babel/preset-env", {
                                         targets: "defaults",
                                         modules: false
+                                    }]
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        test: /\.less$/,
+                        use: [
+                            "style-loader",
+                            "css-loader",
+                            "less-loader"
+                        ]
+                    },
+                    {
+                        test: /\.css$/,
+                        use: [
+                            "style-loader",
+                            "css-loader"
+                        ]
+                    }
+                ]
+            },
+            plugins: [new PerspectivePlugin()],
+            resolve: {
+                extensions: [".js", ".json"]
+            }
+        },
+        // React-friendly CommonJS build
+        {
+            mode: argv.mode || "development",
+            entry: "./src/js/react-export.js",
+            output: {
+                filename: "perspective-viewer-boxplot.cjs.js",
+                path: path.resolve(__dirname, "dist"),
+                library: {
+                    type: "commonjs2"
+                }
+            },
+            externals: {
+                "@finos/perspective": "@finos/perspective",
+                "@finos/perspective-viewer": "@finos/perspective-viewer"
+                // d3 will be bundled
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.js$/,
+                        exclude: /node_modules/,
+                        use: {
+                            loader: "babel-loader",
+                            options: {
+                                presets: [
+                                    ["@babel/preset-env", {
+                                        targets: "defaults",
+                                        modules: "commonjs"
                                     }]
                                 ]
                             }
