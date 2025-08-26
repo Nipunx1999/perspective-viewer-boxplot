@@ -43,9 +43,25 @@ function BoxplotExample() {
 }
 ```
 
-## Method 2: Local File Copy
+## Method 2: Local File Copy - Source Version (Recommended)
 
-If you copied the dist file locally:
+**NEW**: Use the unbundled source file to avoid ESLint errors:
+
+### Option A: Source File (No ESLint errors)
+```jsx
+import React, { useEffect, useRef } from 'react';
+import perspective from '@finos/perspective';
+import '@finos/perspective-viewer';
+import '@finos/perspective-viewer-datagrid';
+import '@finos/perspective-viewer-d3fc';
+
+// Import the source version - requires d3 as dependency
+import './path/to/perspective-viewer-boxplot-source.js';
+
+// Make sure you have d3 installed: npm install d3
+```
+
+### Option B: Bundled File (May cause ESLint errors)
 
 ### Step 1: Dependencies
 Make sure you have these in your package.json:
