@@ -60,9 +60,8 @@ async function loadPerspectiveBoxplotPlugin() {
                 console.log("View config:", config);
                 console.log("Schema:", schema);
 
-                // Get raw data from the table
-                const table = await view.to_table();
-                const rawData = await table.view().to_json();
+                // Get raw data from the view
+                const rawData = await view.to_json();
                 
                 if (!rawData || rawData.length === 0) {
                     this._container.innerHTML = '<div style="text-align: center; padding: 20px;">No data available for boxplot</div>';
