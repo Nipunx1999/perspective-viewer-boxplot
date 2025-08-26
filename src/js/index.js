@@ -755,3 +755,7 @@ if (document.readyState === 'loading') {
 } else {
     loadPerspectiveBoxplotPlugin();
 }
+
+// Export the plugin loading function for manual usage
+export { loadPerspectiveBoxplotPlugin };
+export default loadPerspectiveBoxplotPlugin;

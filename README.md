@@ -132,6 +132,7 @@ Hover over any box to see:
 
 - Modern browsers with ES6 support
 - WebGL for optimal Perspective performance
+- D3.js is bundled - no need to install separately
 
 ## Development
 
