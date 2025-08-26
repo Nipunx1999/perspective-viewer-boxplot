@@ -47,7 +47,7 @@ function BoxplotExample() {
 
 **NEW**: Use the unbundled source file to avoid ESLint errors:
 
-### Option A: Source File (No ESLint errors)
+### Option A: React-Specific Version (Recommended)
 ```jsx
 import React, { useEffect, useRef } from 'react';
 import perspective from '@finos/perspective';
@@ -55,10 +55,47 @@ import '@finos/perspective-viewer';
 import '@finos/perspective-viewer-datagrid';
 import '@finos/perspective-viewer-d3fc';
 
-// Import the source version - requires d3 as dependency
-import './path/to/perspective-viewer-boxplot-source.js';
+// Import the React-specific version that uses proper plugin registration
+import './path/to/perspective-viewer-boxplot-react.js';
 
 // Make sure you have d3 installed: npm install d3
+
+function MyComponent() {
+  const viewerRef = useRef();
+
+  useEffect(() => {
+    const initViewer = async () => {
+      const viewer = viewerRef.current;
+      
+      // Wait a bit for plugin registration
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const data = [
+        { region: 'North', sales: 25, profit: 18 },
+        { region: 'South', sales: 32, profit: 24 },
+        // ... more data
+      ];
+
+      const worker = perspective.worker();
+      const table = await worker.table(data);
+      await viewer.load(table);
+      
+      // Check if boxplot plugin is available
+      const plugins = await viewer.getAllPlugins();
+      console.log("Available plugins:", plugins.map(p => p.name));
+      
+      // Set to boxplot
+      await viewer.restore({
+        plugin: 'Boxplot',
+        columns: ['region', 'sales', 'profit']
+      });
+    };
+    
+    initViewer();
+  }, []);
+
+  return <perspective-viewer ref={viewerRef} />;
+}
 ```
 
 ### Option B: Bundled File (May cause ESLint errors)
