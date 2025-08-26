@@ -1,0 +1,50 @@
+{
+  "name": "@nipunx1999/perspective-viewer-boxplot",
+  "version": "1.0.0",
+  "description": "A seaborn-style boxplot plugin for FINOS Perspective with hover tooltips and multi-metric support",
+  "main": "dist/perspective-viewer-boxplot.js",
+  "module": "dist/perspective-viewer-boxplot.esm.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["perspective", "boxplot", "seaborn", "visualization", "statistics", "finos", "react", "d3", "chart"],
+  "author": "Nipun <nipunx1999@protonmail.com>",
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@finos/perspective": ">=3.0.0",
+    "@finos/perspective-viewer": ">=3.0.0",
+    "d3": ">=7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@finos/perspective-webpack-plugin": "^3.2.1",
+    "babel-loader": "10.0.0",
+    "css-loader": "^7.1.2",
+    "less": "^4.2.0",
+    "less-loader": "^12.3.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nipunx1999/perspective-viewer-boxplot"
+  },
+  "bugs": {
+    "url": "https://github.com/nipunx1999/perspective-viewer-boxplot/issues"
+  },
+  "homepage": "https://github.com/nipunx1999/perspective-viewer-boxplot#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

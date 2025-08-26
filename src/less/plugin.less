@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .boxplot-container {
+    width: 100%;
+    height: 100%;
+    background: var(--theme--background, #ffffff);
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// Dark theme support
+:host(.perspective-viewer-dark) {
+  .boxplot-container {
+    background: var(--theme--background, #2d2d2d);
+
+    text {
+      fill: var(--theme--color, #ffffff) !important;
+    }
+
+    .grid-line {
+      stroke: var(--theme--border-color, #555) !important;
+    }
+  }
+}
