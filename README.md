@@ -14,7 +14,7 @@ A seaborn-style boxplot plugin for [FINOS Perspective](https://perspective.finos
 ## Installation
 
 ```bash
-npm install @yourusername/perspective-viewer-boxplot
+npm install @nipunx1999/perspective-viewer-boxplot
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ import '@finos/perspective-viewer-datagrid';
 import '@finos/perspective-viewer-d3fc';
 
 // Import the boxplot plugin
-import '@yourusername/perspective-viewer-boxplot';
+import '@nipunx1999/perspective-viewer-boxplot';
 
 function MyComponent() {
   const viewerRef = useRef();
@@ -136,7 +136,7 @@ Hover over any box to see:
 ## Development
 
 ```bash
-git clone https://github.com/yourusername/perspective-viewer-boxplot
+git clone https://github.com/nipunx1999/perspective-viewer-boxplot
 cd perspective-viewer-boxplot
 npm install
 npm run build    # Production build

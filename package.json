@@ -1,6 +1,6 @@
 {
   "name": "@nipunx1999/perspective-viewer-boxplot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A seaborn-style boxplot plugin for FINOS Perspective with hover tooltips and multi-metric support",
   "main": "dist/perspective-viewer-boxplot.js",
   "module": "dist/perspective-viewer-boxplot.esm.js",
@@ -14,7 +14,7 @@
   },
   "keywords": ["perspective", "boxplot", "seaborn", "visualization", "statistics", "finos", "react", "d3", "chart"],
   "author": "Nipun <nipunx1999@protonmail.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "peerDependencies": {
     "@finos/perspective": ">=3.0.0",
     "@finos/perspective-viewer": ">=3.0.0",
